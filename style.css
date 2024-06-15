@@ -470,6 +470,11 @@ p.bio-note {
 }
 
 /* for the web gallery */
+
+.main-content-gallery {
+  max-height: vh;
+}
+
 .gallery-container {
   flex-flow: row wrap;
   justify-content: center;
