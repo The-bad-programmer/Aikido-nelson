@@ -23,40 +23,37 @@
 
     <!-- MAIN CONTENT GOES HERE-->
 
-    <div class="gallery-image-container">
-      <!--<img class="gallery-image" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Kunisada-Nekomata-1847-01.jpg">-->
-      <script>
-      const pics = [ 
-      'url( 
-"https://media.geeksforgeeks.org/wp-content/uploads/20200316135008/red7.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/wp-content/uploads/20200316135014/yellow3.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/img-practice/MaskGroup58@2x-min-1637846347.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-course-overview-image.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/img-practice/banner/complete-interview-preparation-thumbnail.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/img-practice/banner/Amazon-Test-Series-thumbnail.png")', 
-      'url( 
-"https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png")' 
-  ]; 
-  const pic = document.querySelector('section'); 
+    <div class="gallery-image-container" style="height: 18rem; width: 100%; background-size: cover;">
+  <div class="gallery-image" style="height: 16rem; width: 90%; margin: 1rem; background-size: cover;">
+    <script>
+      const pics = [
+        'url("https://media.geeksforgeeks.org/wp-content/uploads/20200316135008/red7.png")',
+        'url("https://media.geeksforgeeks.org/wp-content/uploads/20200316135014/yellow3.png")',
+        'url("https://media.geeksforgeeks.org/img-practice/MaskGroup58@2x-min-1637846347.png")',
+        'url("https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-course-overview-image.png")',
+        'url("https://media.geeksforgeeks.org/img-practice/banner/complete-interview-preparation-thumbnail.png")',
+        'url("https://media.geeksforgeeks.org/img-practice/banner/Amazon-Test-Series-thumbnail.png")',
+        'url("https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png")'
+      ];
 
-  function showImage() { 
-      var a = Math.floor(Math.random() * pics.length); 
-      var img = pics[a]; 
-      pic.style.backgroundImage = img; 
-  } 
+      const picContainer = document.querySelector('.gallery-image');
 
-  setInterval(showImage, 5000); 
-  </script>
-    </div>
+      function showImage() {
+        var a = Math.floor(Math.random() * pics.length);
+        var img = new Image();
+        img.onload = function() {
+          picContainer.style.backgroundImage = pics[a];
+        };
+        img.src = pics[a].replace('url("', '').replace('")', '');
+      }
 
-   
+      setInterval(showImage, 5000);
+    </script>
+  </div>
+</div>x
+
     <!--MAIN CONTENT GOES HERE-
-    <div class=" gallery-container">
+    <div class="gallery-container">
       <div class="gallery-item">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Kunisada-Nekomata-1847-01.jpg">
 
@@ -82,16 +79,13 @@
         Feeling the ki during zanshin practice.
       </div>
     </div>
- 
+
     <p align=center>
-      <a class="button" href="https://www.instagram.com/aikido_nelson/" target=”_blank”><i class="fa fa-instagram pulse"
+      <a class="button" href="https://www.instagram.com/aikido_nelson/" target="_blank"><i class="fa fa-instagram pulse"
           aria-hidden="true"></i> &ensp; Find us on Instagram</a>
     </p>
     -->
   </div>
-
-
-
 
   <div w3-include-html="footer.html"></div>
 
@@ -99,5 +93,3 @@
 <script>
   includeHTML();
 </script>
-
-</html>
