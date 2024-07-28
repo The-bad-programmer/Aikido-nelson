@@ -482,14 +482,24 @@ p.bio-note {
   background-color: white;
 }
 
-.gallery-image-container{
+.gallery-image-container {
   margin: auto;
   text-align: center;
-  
+  width: 100%;
+  padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+  position: relative;
 }
-.gallery-image{
-  max-width: 100%;
-  margin: auto;
+
+.gallery-image {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  background-size: contain; /* Change this line */
+  background-position: center;
+  background-repeat: no-repeat; /* Add this line */
+  border-radius: 0.5rem; /* Optional */
 }
 
 .gallery-caption-container{
@@ -502,25 +512,9 @@ p.bio-note {
   text-align: center;
   margin: auto;
 }
-.gallery-thumbnail-container{
-  margin: auto;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border:solid 2px #0800ff;
-}
 
-.gallery-thumbnail{
-  margin: 10px; 
-  max-width: 10%; 
-  border: 2px solid #ff00b7; 
-}
 
-.gallery-thumbnail-img{
-  width: 70%; 
-  height: auto; 
-}
+
 /* for the web gallery 
 .gallery-item {
   text-align: center;
