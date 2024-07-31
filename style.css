@@ -493,14 +493,14 @@ p.bio-note {
 .gallery-image-wrapper {
   position: relative;
   overflow: hidden;
-  max-width: 40%; /* add a maximum width here */
-  margin: 0 auto; /* add this to center the container horizontally */
 }
 
 .gallery-image {
   width: 100%;
   height: auto;
 }
+
+
 
 .gallery-image img {
   width: 100%;
