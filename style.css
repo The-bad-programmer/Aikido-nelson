@@ -483,36 +483,45 @@ p.bio-note {
 }
 
 .gallery-image-container {
-  margin: auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding-bottom: 56.25%; /* Aspect ratio: 16:9 */
+  height: 100%;
+}
+
+.gallery-image-wrapper {
   position: relative;
+  overflow: hidden;
+  max-width: 40%; /* add a maximum width here */
+  margin: 0 auto; /* add this to center the container horizontally */
 }
 
 .gallery-image {
+  width: 100%;
+  height: auto;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.caption-container {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
-  background-size: contain; /* Change this line */
-  background-position: center;
-  background-repeat: no-repeat; /* Add this line */
-  border-radius: 0.5rem; /* Optional */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* slight shade of gray */
+  color: #fff;
 }
 
-.gallery-caption-container{
-  text-align: center;
-  background-color: red;
-  margin: auto;
-  max-width: 40rem;
+.caption-text {
+  margin: 0;
+  font-size: 24px; /* adjust the font size to your liking */
 }
-.gallery-caption{
-  text-align: center;
-  margin: auto;
-}
-
 
 
 /* for the web gallery 

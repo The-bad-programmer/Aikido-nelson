@@ -24,57 +24,73 @@
     <!-- MAIN CONTENT GOES HERE-->
 
     <div class="gallery-image-container">
-      <div class="gallery-image">
-        <script>
-          const images = [
-  {
-    url: './gallery/image1.jpg',
-    caption: 'Image 1 caption'
-  },
-  {
-    url: './gallery/Callum 3rd dan.jpeg',
-    caption: 'Callum 3rd dan'
-  },
-  {
-    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg/554px-Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg',
-    caption: 'Kaosho Roshishin'
-  },
-  {
-    url: 'https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png',
-    caption: 'DSA Self Paced'
-  },
-  {
-    url: './gallery/Callum and his boken.jpg',
-    caption: 'Callum and his boken'
-  },
-  {
-    url: './Images/callum-17-01-colour-crpd.jpg',
-    caption: 'Callum'
-  },
-  {
-    url: './Images/martin_sensei_large.jpg',
-    caption: 'Martin Sensei'
-  }
-];
-
-const picContainer = document.querySelector('.gallery-image');
-
-function showImage() {
-  var a = Math.floor(Math.random() * images.length);
-  var randomImage = images[a];
-  picContainer.style.backgroundImage = `url(${randomImage.url})`;
-  picContainer.innerHTML = `<figcaption>${randomImage.caption}</figcaption>`;
-}
-
-// Skip the first interval
-setTimeout(() => {
-  setInterval(showImage, 5000);
-}, 5000);
-
-// Initial image display
-showImage();
-        </script>
+      <div class="gallery-image-wrapper">
+        <div class="gallery-image">
+          <img src="" alt="">
+        </div>
+        <div class="caption-container">
+          <p class="caption-text"></p>
+        </div>
       </div>
+      <script>
+        const images = [
+          {
+            url: './gallery/image1.jpg',
+            caption: 'Image 1 caption'
+          },
+          {
+            url: './gallery/Callum 3rd dan.jpeg',
+            caption: 'Callum 3rd dan'
+          },
+          {
+            url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg/554px-Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg',
+            caption: 'Kaosho Roshishin'
+          },
+          {
+            url: 'https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png',
+            caption: 'DSA Self Paced'
+          },
+          {
+            url: './gallery/Callum and his boken.jpg',
+            caption: 'Callum and his boken'
+          },
+          {
+            url: './Images/callum-17-01-colour-crpd.jpg',
+            caption: 'Callum'
+          },
+          {
+            url: './Images/martin_sensei_large.jpg',
+            caption: 'Martin Sensei'
+          }
+        ];
+    
+        const picContainer = document.querySelector('.gallery-image');
+        const imgElement = picContainer.querySelector('img');
+        const captionContainer = document.querySelector('.caption-container');
+        const captionText = captionContainer.querySelector('.caption-text');
+    
+        let lastImageIndex = -1;
+    
+        function showImage() {
+          let a;
+          do {
+            a = Math.floor(Math.random() * images.length);
+          } while (a === lastImageIndex);
+    
+          lastImageIndex = a;
+          const randomImage = images[a];
+          imgElement.src = randomImage.url;
+          captionText.textContent = randomImage.caption;
+        }
+    
+        // Skip the first interval
+        setTimeout(() => {
+          setInterval(showImage, 5000);
+        }, 5000);
+    
+        // Initial image display
+        showImage();
+      </script>
     </div>
 
     <!--MAIN CONTENT GOES HERE-
