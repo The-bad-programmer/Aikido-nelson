@@ -24,81 +24,115 @@
     <!-- MAIN CONTENT GOES HERE-->
 
     <div class="gallery-image-container">
+      <button class="prev-button" onclick="showPrevImage()"><i class="fa fa-solid fa-arrow-left"></i></button>
       <div class="gallery-image-wrapper">
-        <img src="" alt="" class="gallery-image">
+        <div class="gallery-image">
+          <img id="gallery-image" src="" alt=""> 
+        </div>
         <div class="caption-container">
-          <p class="caption-text"></p>
+          <p id="caption-text"></p> 
         </div>
       </div>
+      <button class="next-button" onclick="showNextImage()"><i class="fa fa-solid fa-arrow-right"></i></button>
       <script>
         const images = [
           {
-            url: './gallery/throw.jpeg',
-            caption: 'Special gradings'
+            url: './gallery/All ages.png',
+            caption: 'All Ages'
           },
           {
-            url: './gallery/seminars.jpeg',
-            caption: 'Special teachers'
+            url: './gallery/Breaking balance 1.png',
+            caption: 'Breaking Attackers Balance'
+          },
+          {
+            url: './gallery/Collaberation.png',
+            caption: 'Collaberation'
+          },
+          {
+            url: './gallery/Demonstrations.png',
+            caption: 'Demonstrations'
+          },
+          {
+            url: './gallery/Flip.jpeg',
+            caption: 'Rolls'
+          },
+          {
+            url: './gallery/Grading.jpeg',
+            caption: 'Seminars With Other clubs'
+          },
+          {
+            url: './gallery/Gradings.2.jpeg',
+            caption: 'Breaking Attackers Balance'
+          },
+          {
+            url: './gallery/NZ Head instructor Takase Shihan .png',
+            caption: 'NZ Head instructor Takase Shihan'
+          },
+          {
+            url: './gallery/Our values.png',
+            caption: 'Our values'
+          },
+          {
+            url: './gallery/seminar.jpeg',
+            caption: 'Fitness'
           },
           {
             url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg/554px-Kaosho_Roshishin_%E8%8A%B1%E5%92%8C%E5%B0%9A%E9%AD%AF%E6%99%BA%E6%B7%B1_%28Flowery_Monk_Lu_Zhishen%29_%28BM_2008%2C3037.10213%29.jpg',
             caption: 'Callum-sensei demonstrates oni-koshi-nage'
           },
           {
-            url: './gallery/seminar.jpeg',
-            caption: 'Warming up'
+            url: './gallery/Special trainings.png',
+            caption: 'Special Trainings'
           },
           {
-            url: './gallery/Patrick flipped.jpeg',
-            caption: 'Demonstrations'
+            url: './gallery/throw.jpeg',
+            caption: 'Gradings'
           },
           {
-            url: './gallery/maintenance.jpeg',
-            caption: 'Keeping order'
+            url: './gallery/Weapons work 2.png',
+            caption: 'Weapon Work'
           },
           {
-            url: './gallery/Gradings.2.jpeg',
-            caption: 'Grade with us'
+            url: './gallery/Weapons Work.png',
+            caption: 'Weapon Work'
           },
           {
-            url: './gallery/Gradings- MOT.jpeg',
-            caption: 'Work up'
-          },
-          {
-            url: './gallery/Grading.jpeg',
-            caption: 'Honor your elders'
-          },
-          {
-            url: './gallery/Flip.jpeg',
-            caption: 'Roll'
+            url: './gallery/Working bees.png',
+            caption: 'Working bee'
           }
         ];
-      
-        const imgElement = document.querySelector('.gallery-image');
-        const captionContainer = document.querySelector('.caption-container');
-        const captionText = captionContainer.querySelector('.caption-text');
-      
-        let lastImageIndex = -1;
-      
-        function showImage() {
-          let a;
-          do {
-            a = Math.floor(Math.random() * images.length);
-          } while (a === lastImageIndex);
-      
-          lastImageIndex = a;
-          const randomImage = images[a];
-          imgElement.src = randomImage.url;
-          captionText.textContent = randomImage.caption;
+
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+          const imgElement = document.getElementById('gallery-image');
+          const captionText = document.getElementById('caption-text');
+          const imageData = images[index];
+          imgElement.src = imageData.url;
+          captionText.textContent = imageData.caption;
         }
-      
-        // Skip the first interval
-        setTimeout(() => {
-          setInterval(showImage, 5000);
-        }, 5000);
-      
+
+        function showPrevImage() {
+          currentImageIndex--;
+          if (currentImageIndex < 0) {
+            currentImageIndex = images.length - 1;
+          }
+          showImage(currentImageIndex);
+        }
+
+        function showNextImage() {
+          currentImageIndex++;
+          if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+          }
+          showImage(currentImageIndex);
+        }
+
         // Initial image display
-        showImage();
+        showImage(currentImageIndex);
+
+        // Auto-play
+        setInterval(showNextImage, 5000);
       </script>
     </div>
     <!--MAIN CONTENT GOES HERE-
