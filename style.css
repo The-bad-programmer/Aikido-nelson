@@ -541,7 +541,30 @@ p.bio-note {
   cursor: pointer;
 }
 
+.video-container {
+  /* Add some basic styling to the container */
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.video-player {
+  /* Add padding to the player */
+  padding: 20px;
+  flex: 1;
+  max-width: 50%;
+}
+
+.video-player iframe {
+  /* Make the iframe full width and set a reasonable height */
+  width: 100%;
+  height: 300px;
+  /* Add some basic styling to the iframe */
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 /* for the web gallery 
 .gallery-item {
   text-align: center;
