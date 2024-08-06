@@ -280,8 +280,24 @@ p.bio-note {
 
 /* news items */
 
+.social-container {
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social button {
+  margin: 0 10px; /* Add some margin between buttons */
+}
+
 .news-container {
-  margin-top: 2rem;
+  margin-top: .5rem;
   margin-bottom: 2rem;
   padding: 1rem;
   /* box-shadow: 0.5rem 0.5rem 1rem 0px rgba(0, 0, 0, 0.3); */
